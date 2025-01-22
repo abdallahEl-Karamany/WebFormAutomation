@@ -23,7 +23,7 @@ public class WebForm {
     final String actualHead2="Form submitted";
     WebDriver driver ;
     File uploadFile = new File("E:/ITI/ISTQB/CTFL/Mind Maps/ch1.png");
-    // String dynamicXPath;
+    String dynamicXPath;
 
     @BeforeTest
     public void beforeClass(){
@@ -74,7 +74,7 @@ public class WebForm {
 
         colorpicker.sendKeys("#31480F");
 
-        String birthdate="23/06/1946";
+        String birthdate="23/06/1954";
         String[] parts = birthdate.split("/");
         int day=Integer.parseInt(parts[0]);
         int month=Integer.parseInt(parts[1]);
@@ -102,7 +102,7 @@ public class WebForm {
 
             if(cenYear ==19)
             {
-                String dynamicXPath = String.format("/html/body/div/div[5]/table/tbody/tr/td/span[%d]", (i));
+                dynamicXPath = String.format("/html/body/div/div[5]/table/tbody/tr/td/span[%d]", (i));
                 date = driver.findElement(By.xpath(dynamicXPath));
 
                 date.click();
@@ -117,7 +117,7 @@ public class WebForm {
         {
             if(thYear==i) {
 
-                String dynamicXPath=String.format("/html/body/div/div[4]/table/tbody/tr/td/span[%d]",(i+2));
+                dynamicXPath=String.format("/html/body/div/div[4]/table/tbody/tr/td/span[%d]",(i+2));
                 date = driver.findElement(By.xpath(dynamicXPath));
                 date.click();
                 break;
@@ -129,7 +129,7 @@ public class WebForm {
             if(i == tenthYear) {
                 int index=i+2;
 
-                String dynamicXPath=String.format("/html/body/div/div[3]/table/tbody/tr/td/span[%d]",index);
+                dynamicXPath=String.format("/html/body/div/div[3]/table/tbody/tr/td/span[%d]",index);
                 date = driver.findElement(By.xpath(dynamicXPath));
                 date.click();
                 break;
@@ -141,7 +141,7 @@ public class WebForm {
 
             if(month==i) {
 
-                String dynamicXPath=String.format("/html/body/div/div[2]/table/tbody/tr/td/span[%d]",(i));
+                dynamicXPath=String.format("/html/body/div/div[2]/table/tbody/tr/td/span[%d]",(i));
                 date = driver.findElement(By.xpath(dynamicXPath));
                 date.click();
                 break;
@@ -152,7 +152,7 @@ public class WebForm {
         for(int i=1;i<=6;i++) {
             for(int j=1;j<=7;j++) {
 
-                String dynamicXPath=String.format("/html/body/div/div[1]/table/tbody/tr[%d]/td[%d]",i,j);
+                dynamicXPath=String.format("/html/body/div/div[1]/table/tbody/tr[%d]/td[%d]",i,j);
                 date = driver.findElement(By.xpath(dynamicXPath));
                 String dayClass=date.getDomAttribute("class");
                 if(dayClass.equals("day")) {
