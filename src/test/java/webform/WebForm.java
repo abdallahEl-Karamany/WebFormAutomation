@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.List;
 
 public class WebForm {
     final String name="Abdallah";
@@ -57,7 +58,20 @@ public class WebForm {
 
 
         WebElement search= driver.findElement(By.name("my-datalist"));
-        search.sendKeys("Seattle");
+
+        List<WebElement> list=driver.findElements(By.xpath("//datalist[@id=\"my-options\"]//option"));
+        for(WebElement lists: list){
+            String x=lists.getDomAttribute("value");
+            if(x.equals("Seattle")){
+                search.click();
+                search.sendKeys("Seattle");
+                break;
+            }
+
+        }
+
+
+        //search.sendKeys("Seattle");
 
 
 
